@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Cross-site Scripting"
+title:  "Cross Site Scripting(XSS)"
 date:   2013-06-18 13:59:40
 categories: vulnerabilities
 ---
