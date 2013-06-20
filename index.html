@@ -1,0 +1,42 @@
+---
+layout: default
+title: Knowledge Base Entersoft
+---
+
+<div id="home">
+	<div class="row-fluid">
+		<div class="span3">
+			<h6>VULNERABILITIES</h6>
+			<ul class="unstyled posts">
+				{% for post in site.posts %}
+				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="span3">
+			<h6>EXPLOITS</h6>
+			<ul class="unstyled posts">
+				{% for post in site.posts %}
+				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ul>		
+		</div>
+		<div class="span3">
+			<h6>HACKS</h6>
+			<ul class="unstyled posts">
+				{% for post in site.posts %}
+				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>	
+		<div class="span3">
+			<form class="form-search focus">
+				<label>Search the Knowledge Base</label>
+				<div class="input-append">
+					<input type="text" class="span2 search-query" placeholder="Search" id="search-query-1">
+					<button type="submit" class="btn"><span class="fui-search"></span></button>
+				</div>
+			</form>
+		</div>			
+	</div>
+</div>
