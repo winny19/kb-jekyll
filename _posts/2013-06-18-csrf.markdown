@@ -4,3 +4,34 @@ title:  "Cross Site Request Forgery(CSRF)"
 date:   2013-06-18 13:59:40
 categories: vulnerabilities
 ---
+
+Vulenrability Type:Cross-Site Request Forgery (CSRF)
+
+Description:Cross-Site Request Forgery (CSRF) is an attack to trick user to take an action like making a website request but un-knowingly the fact that something like this is happening and then exploiting the weakness in website design to take advantage of such requests made by the trusted users.
+
+How it Works Or Cause:Unlike Cross Site Scripting (XSS) attack, that is used mostly to steal user data, the Cross-Site Request Forgery (CSRF) mostly exploit the weakness in website’s authentication & authorization process and many times both of these attacks are used in combination. Existence of an XSS vulnerability allows attacker to bypass the anti-CSRF mechanisms. Thus Cross Site Scripting misuses the user’s trust on a known web site and the Cross-Site Request Forgery (CSRF) misuse Website’s trust on user requests.
+
+The CSRF vulnerabilities has also resulted in remote code execution with root privileges as well as a vulnerability that can compromise a root certificate, which will completely undermine a public key infrastructure.
+
+Example : For example consider a scenario that you are browsing a support forum where another user has posted a good answer to your query and posted an image into his detailed response page but the image src element is actually a attack URL i.e. a HTML URL request to your banking website to transfer funds.
+<img src=”http://yourbank.com/transfer?accountholder=you&amount=5000&transferto=attaccker”>
+
+In such case if the bank trusts on your browser, it would execute the transfer request. The trust could be assumed because there is a active cookie having valid session/account id issued from for banking site only after proper authentication process. Similarly attacker may lure you to click on a HTML link or an image that may execute java script.
+
+Preventive measures: For highly critical transactions or administrative access you may implement multi stage authentication. Ask users to resubmit the 2nd password or secret key on each critical transaction and this key/2nd password should be different than the login password. Using Out of bound channel like OTP (One time password) is very common in banking transactions.
+
+	    Use random secret tokens that are sent with GET requests and during POST verify that the secret token is present in request. It would help to protect from Login CSRF when attacker is able to get access to a valid session id. Validate secret tokens with session IDs and if possible against IP address as well. Generate new tokens with each GET request and save it on server side. Make sure critical transactions/actions are not performed with GET requests.
+
+	    Use web Application Firewall and other products providing CSRF filter and cross-domain rules. Please note that network layer Firewall and Antivirus/malware are not targeted to prevent Web Application attacks.
+	
+	    Check the information in referrer header. Please note that the referrer header can be blocked by the network layer products hence your site should not stop working if this header is missing. You may use these validations on HTTPS/SSL protocol because on secure channels headers are not removed most of time. An alternative is to use custom headers with XMLHttpRequest.
+
+	    Re-authenticate user session id against the IP address. Work with minimum session timeout and avoid features like “remember me” for website that maintain sensitive data or involved in financial transactions.
+
+	    On sensitive functions like login page, provide users some identification messages/pictures that are specific to those users and NOT common for everyone so that user may notice if they are redirected to a fake site.
+
+	    Restrict site visitors options to submit links/images on your websites.
+
+	    Avoid using 3rd party plug-ins on your websites and don’t allow users to run 3rd party plug-ins on your webspace to run under same security context.
+
+	    Inform users about critical transactions using out of band channels like SMS or emails and show last login (failed) attempts on welcome page.

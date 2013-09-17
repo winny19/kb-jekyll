@@ -1,3 +1,4 @@
 name: Entersoft Knowledge Base
 pygments: true
 permalink: /:categories/:title.html
+
