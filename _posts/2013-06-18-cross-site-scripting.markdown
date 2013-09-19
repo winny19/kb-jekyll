@@ -7,14 +7,14 @@ categories: vulnerabilities
 
 Cross Site Scripting (XSS) is the act of injecting malicious scripts or other HTML code into a web page that runs on the client browser and cause damage to your web site users. Mostly it works when your trust on a user input (e.g. feedback comments) and render such information as part of web page HTML without validating the contents thus all other users who visit this web page may become of attack.
 
-	Depending on the malicious script, it may execute automatically in web browser when the page is loading or it may trigger with a user action. Few web browsers like Internet Explorer put such infected web pages under suspected category and give warnings to user if any scripting code is being executed while web page is rendering but many Cross Site Script works by tricking with users and encouraging them to click on a link/image etc. that leads to malicious action without users being aware of such actions.
+Depending on the malicious script, it may execute automatically in web browser when the page is loading or it may trigger with a user action. Few web browsers like Internet Explorer put such infected web pages under suspected category and give warnings to user if any scripting code is being executed while web page is rendering but many Cross Site Script works by tricking with users and encouraging them to click on a link/image etc. that leads to malicious action without users being aware of such actions.
 
-	Simplest example to understand how it works: If you enter following JavaScript code in a Comment section of webpage, then next time whenever the page will load in browser it will execute the java script and prompt user with “hello” message:
+Simplest example to understand how it works: If you enter following JavaScript code in a Comment section of webpage, then next time whenever the page will load in browser it will execute the java script and prompt user with “hello” message:
 
 <script>alert(hello);</script>
 Injecting code with Img tag: <img src=javascript:alert(hello);>
 
-	Tricking users could be as simple as sending a interesting jpg (image) file to a user by email or putting a link in comment and embedding the malicious script into the jpg/image file. Many users does not see any risk with a image file but as soon as they click on the link from attacker’s source their security may be compromised.
+Tricking users could be as simple as sending a interesting jpg (image) file to a user by email or putting a link in comment and embedding the malicious script into the jpg/image file. Many users does not see any risk with a image file but as soon as they click on the link from attacker’s source their security may be compromised.
 
 Cross Site Scripting (XSS) Attack How it works?
 
@@ -60,16 +60,16 @@ Vulnerable HTML Tags
 
 The following HTML tags are commonly used by attackers to inject script code that should be looked closely for content validation:
 
-	<img>
-	<link>
-	<frame>
-	<iframe>
-	<embed>
-	<meta>
+<img>
+<link>
+<frame>
+<iframe>
+<embed>
+<meta>
 
 Other dangerous tags:
 
-	<frameset>
+<frameset>
 	<applet>
 	<object>
 	<html>
@@ -182,7 +182,7 @@ Vulnerability
 
 Next we try to send the following query to the search engine:
 
-	<script type="text/javascript">
+<script type="text/javascript">
 	alert ('This is an XSS Vulnerability')
 	</script>
 
